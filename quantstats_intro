@@ -1,0 +1,11 @@
+import quantstats as qs
+
+acoes = ['PGMN3.SA', 'BNBR3.SA', 'COCE3.SA', 'GRND3.SA','HAPV3.SA','MDIA3.SA','AERI3.SA']
+
+retorno_das_acoes = qs.utils.download_returns(acoes,period='10y').dropna()
+
+qs.reports.html(retorno_das_acoes,"^BVSP",title="IAC vs Ibovespa",output='iacbvp.html')
+########################################################################################
+qs.reports.full(retorno_das_acoes,'^BVSP')
+
+
